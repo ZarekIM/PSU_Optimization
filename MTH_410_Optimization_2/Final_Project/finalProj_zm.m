@@ -1,16 +1,29 @@
-%%%% Est. of Distributed Source Parameters for a Nonlin. Dynamical System %%%%
+% Est. of Distributed Source Parameters for a Nonlin. Dynamical System
+% Zarek McGee
+% 3/21/2019
 
-% This Constrained Optimization problem can be reduced to an unconstrained
-% problem by expressing the state vector u(m) in terms of alpha.
-
-% load prdata1.m & prdata2.m before running
-% INPUT: finalProj_zm(49,100,0.02,1,prdata1,prdata2)
+%
 
 function [a,lam,lam_pr2,f1,f2] = finalProj_zm(n,m,h,u0,prdata1,prdata2)
+% --------------------------------------------------------------------------- %
+% For detailed problem definition, please refer to FinalProject_w2019.pdf.
+% For a write-up & results for this problem, please refer to the readme.md.
 
-    x = linspace(h,1-h,n);
+% INPUT: 
+% 	n: 49. Dimension of state vector, x
+%	m: 100. Number of time steps
+%	h: 0.02 = 1/(n+1). Increment between nodes
+%	u0: 1 or 2. Determines which function is used as u0
+%	prdata1: Target data vector
+%	prdata2: Validation data
+
+% USAGE:
+%	Load prdata1.m & prdata2.m prior to running
+% 	finalProj_zm(49,100,0.02,1,prdata1,prdata2)
+% --------------------------------------------------------------------------- %
 
 	%Choose initial condition
+    x = linspace(h,1-h,n);
     if u0 == 1
         u0 = sin(2*pi*x);
     elseif u0 == 2
@@ -75,6 +88,7 @@ function [u] = uMatrix(n,m,k,a,u0,A)
 
 end
 
+
 % Backwards integration to obtain Lagrange Multipliers
 function [lam] = adjointModel(n,m,k,A,u,prdata)
 	
@@ -86,6 +100,7 @@ function [lam] = adjointModel(n,m,k,A,u,prdata)
 	end	
 	
 end
+
 
 % Gradient of reduced function F w.r.t. alpha
 function agradF = gradF(m,k,lam)
@@ -99,6 +114,7 @@ function agradF = gradF(m,k,lam)
 	
 end
 
+
 % Model to minimize via fminunc
 function [f,u] = fModel(n,m,k,a,u0,A,prdata)
 
@@ -106,6 +122,7 @@ function [f,u] = fModel(n,m,k,a,u0,A,prdata)
     f = 0.5 * norm(u(:,m) - prdata,2)^2;
 
 end
+
 
 % Cost function
 function f = fcost(m,u,prdata)
