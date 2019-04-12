@@ -25,7 +25,8 @@ To solve this problem, we use the Lagrange Multipliers approach. Using the Lagra
 <img src="https://github.com/ZarekIM/PSU_Optimization/blob/master/MTH_410_Optimization_2/HW_3/Lagrangian.PNG">
   
 we find the gradient of L to obtain the first-order optimality conditions. Setting these conditions equal 
-to 0 gives us a system of equations used to obtain the following equation for x, <img src="https://github.com/ZarekIM/PSU_Optimization/blob/master/MTH_410_Optimization_2/HW_3/equation_for_x.PNG">  
+to 0 gives us a system of equations used to obtain the following equation for x,  
+<img src="https://github.com/ZarekIM/PSU_Optimization/blob/master/MTH_410_Optimization_2/HW_3/equation_for_x.PNG">  
 
 The coefficients a,b,c,d are defined in OptimPortfolio.m lines 11-14.  
   
