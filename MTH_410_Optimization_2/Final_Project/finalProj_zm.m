@@ -2,7 +2,7 @@
 % Zarek McGee
 % 3/21/2019
 
-%
+%Score recieved: 100/100.
 
 function [a,lam,lam_pr2,f1,f2] = finalProj_zm(n,m,h,u0,prdata1,prdata2)
 % --------------------------------------------------------------------------- %
