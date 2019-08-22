@@ -1,6 +1,8 @@
 # Estimation of Distributed Source Parameters for a Nonlinear Dynamical System  
 #### MTH 410 - Final Project - 3/21/2019  
   
+MATLAB Code: [finalProj_zm.m](https://github.com/ZarekIM/PSU_Projects/blob/master/MTH_410_Optimization_2/Final_Project/finalProj_zm.m)  
+  
 ### Problem Summary & Context  
 For this project, we have a constrained optimization problem in which the constraints are given by a discretized, nonlinear Initial Boundary Value Problem (IBVP). The goal is to find the optimal source parameters vector, alpha, that approximates the data in prdata1.m at time t_100. We use prdata1.m in our optimization procedure and validate with prdata2.m. This project combines the theory and methodology used for assignment 2 (param. estimation for a nonlinear BVP) and assignment 4 (param. est. in a discrete dynamical system). Whereas those problems were 2-dimensional, this problem is in 3 dimensions- 2 spacial and 1 temporal.  
   
